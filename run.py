@@ -63,18 +63,12 @@ def display_hangman(tries):
 ========='''
   ]
 
-# Alionareturn stage[tries]
-
-
 def hangman_welcome():
 
-
-    
     """
  Greeting function with logo  and rules to player to begin the game
 
    """
-
 
 print(Fore.GREEN + welcome)
 
@@ -103,16 +97,54 @@ print(
 print("Good luck ! " + name)
 
 
-def getRandomWords():
-    word = random.choice(WORDS)
-    print(WORDS)
-    return word.upper()
+def getRandomWords(WORDS):
+  """
+  Randomly chooses words from the list
+  """
+
+  word = random.choice(WORDS).lower()
 
 
-def game_play():
-    word_lenght = "_" * len(word)
-    guessed = False
-    guessedLetters = []
-    guessedWords = []
-    tries = 6
-    print("Lets play Hangman !")
+  guessed_right = []
+  guessed_wrong =[]
+  tries = 6
+  hangman_count = -1
+  while tries > 0:
+       output = ''
+       for letter in word:
+        if letter in guessed_right:
+         output += letter
+       else:
+         output  += '_'
+       if output == word:s
+       break
+
+       print("Guess the word: ",output)
+       
+      print(tries, " chances left")
+
+
+   
+ 
+   
+
+
+# def game_play(WORDS):
+#     word_lenght = "_" * len(word)
+#     guessed = False
+#     guessedLetters = []
+#     guessedWords = []
+#     tries = 6
+#     print("Lets play Hangman !")
+
+#     while not guessed and tries > 0:
+#     guess = input(f"{Fore.GREEN+Style.BRIGHT}Please guess a letter or word:")
+#     if(guess) == 1 and guess.isalpha():
+#         if guess in guessedLetters:
+#            print("You already guessed the letter", guess)
+#         elif guess not in word:
+#            print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word.")
+#         elif len(guess) == len(WORDS)
+
+#         tries -= 1
+

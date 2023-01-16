@@ -1,31 +1,29 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Game Hangman
+***
+Add link for repository
+link for life game 
 
-Welcome Aliona83,
+## Contents
+***
+ * Table of Contents
+ * Project Overview
+    * Goals
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Project Overview
+***
 
-## Reminders
+In this project, I have made hangman game using Python. Hangman is popular word game. This game is familiar to us since childhood, onlywe used paper and a pen for this game. This game will be an interesting for adults and children, as the words are matched with different difficulties. Player will get a word and tries to guess it by suggesting letters. Player has the length of the word that have to guess, with some lifelines.You have 6 guesses to guess a letter or a word before you run out of lives.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Goals
+***
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+
+
