@@ -1,0 +1,1 @@
+WORDS = ['flower', 'heart', 'winter', 'communication']
