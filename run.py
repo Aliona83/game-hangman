@@ -62,7 +62,8 @@ def display_hangman(tries):
       |
 ========='''
   ]
-return stage[tries]
+
+# Alionareturn stage[tries]
 
 
 def hangman_welcome():
@@ -76,6 +77,7 @@ def hangman_welcome():
 
 
 print(Fore.GREEN + welcome)
+
 
 def game_start():
   """
@@ -100,14 +102,17 @@ print(
 )
 print("Good luck ! " + name)
 
- 
-
-name = None
-name = input(f"{Fore.RED+Style.BRIGHT}What is your name?")
-print(name)
-
 
 def getRandomWords():
     word = random.choice(WORDS)
+    print(WORDS)
+    return word.upper()
 
-  return word.upper()
+
+def game_play():
+    word_lenght = "_" * len(word)
+    guessed = False
+    guessedLetters = []
+    guessedWords = []
+    tries = 6
+    print("Lets play Hangman !")
