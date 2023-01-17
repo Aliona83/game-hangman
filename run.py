@@ -1,6 +1,5 @@
-import random
+import random, words
 from time import sleep
-from words import WORDS
 import os
 import colorama
 
@@ -64,12 +63,11 @@ def display_hangman(tries):
 ========='''
   ]
 
-def hangman_welcome():
 
-    """
- Greeting function with logo  and welcome the player to begin the game
+"""
+Greeting function with logo  and welcome the player to begin the game
 
-   """
+"""
 print(Fore.GREEN + welcome)
 sleep(1)
 
@@ -99,17 +97,22 @@ print()
 print("============================")
 print(f"{Fore.BLUE+Style.BRIGHT}Try to guess the Word")
 
-def getRandomWords():
- word = random.choice(WORDS).lower() # Pick a word
-random_word = getRandomWords()
+
+  
+word = random.choice(words.WORDS).lower()
+reveal = list(len(word)*'_')
+print(reveal)
+lives = 6
+gameWon = False
+
+# Pick a word
+
 guessed_right = []
 guessed_wrong =[]
-tries = 6
 hangman_count = -1
   
-hangman_welcome()
 word = ''
-while tries > 0:
+while lives > 0:
        output = ''
        for letter in word:
         if letter in guessed_right:
@@ -120,7 +123,7 @@ while tries > 0:
         break
 
        print("Guess the word: ",output)
-       print(tries," lives left")
+       print(lives," lives left")
        guess = input().lower()
        if guess in guessed_right or guess in guessed_wrong:
          print("Already guessed", guess)
@@ -129,10 +132,14 @@ while tries > 0:
        else:
             print(f"{Fore.RED+Style.BRIGHT}Sorry! You have guessed a wrong letter!")
             hangman_count = hangman_count + 1
-            tries = tries - 1 
+            tries = lives - 1 
             guessed_wrong.append(guess)
-       if tries > 0:
+
+
+       if lives > 0:
         print("You guessed th word and you win!!!")
+       else:
+        print("Sorry you guessed the wrong letter.Try again.")
 
 
    
