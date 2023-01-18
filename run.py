@@ -100,49 +100,61 @@ print(f"{Fore.BLUE+Style.BRIGHT}Try to guess the Word")
 
   
 word = random.choice(words.WORDS).lower()
-reveal = list(len(word)*'_')
-print(reveal)
+word = word.lower()
+output = list(len(word)*'_')
 lives = 6
 gameWon = False
 
-# Pick a word
 
-guessed_right = []
-guessed_wrong =[]
-hangman_count = -1
+def print_hangman():
+
+
+ def check_letters(letters,word):
+  """
+  Function cheack the right and wrong letters in a word
+  """
+  global output
+  for i in range(0,len(word)):
+    print("_",end=" ")
+    letter = word[i]
+    if guess == letter:
+      output[i] = guess
+      if'__' not in output:
+        return True
+        print("Well done")
+      else:
+          return False
+      
+while gameWon == False and lives > 0:
+  guess =input("Guess a letter or an entire word:").lower()
+  if len(guess) != 1:
+    print("Please enter a single letter")
+  elif not guess.isalpha():
+      print("Please enter a letter")
+  else:
+      #  return guess
+    guess = guess.lower()
   
-word = ''
-while lives > 0:
-       output = ''
-       for letter in word:
-        if letter in guessed_right:
-         output += letter
-       else:
-         output  += '_'  # Dash for each letter in a word
-       if output == word:
-        break
 
-       print("Guess the word: ",output)
-       print(lives," lives left")
-       guess = input().lower()
-       if guess in guessed_right or guess in guessed_wrong:
-         print("Already guessed", guess)
-       elif guess in word:
-          print(f"{Fore.GREEN+Style.BRIGHT}Awesome job! You guessed a correct letter!")
-       else:
-            print(f"{Fore.RED+Style.BRIGHT}Sorry! You have guessed a wrong letter!")
-            hangman_count = hangman_count + 1
-            tries = lives - 1 
-            guessed_wrong.append(guess)
+  if guess == word:
+    gameWon = True
+  else:
+    lives -= 1
 
-
-       if lives > 0:
-        print("You guessed th word and you win!!!")
-       else:
-        print("Sorry you guessed the wrong letter.Try again.")
-
-
-   
- 
-   
+if gameWon:
+  print("Well done you are win")
+else:
+    print("YOU FAILED the word was:",word)
+  
+def play_again():
+  """
+  Ask the user play again
+   """
+  answer = input("Do you want to play again(y/n)").lower()
+  if answer == "y":
+    return True
+  elif answer == "n":
+      return False
+  else:
+        print("Please enter y or n")
 
