@@ -102,50 +102,52 @@ print(f"{Fore.BLUE+Style.BRIGHT}Try to guess the Word")
 word = random.choice(words.WORDS).lower()
 word = word.lower()
 output = list(len(word)*'_')
+print (output)
 lives = 6
 gameWon = False
 
 
 def print_hangman():
+  lives = hangman
+  print(hangman)
+  print(output)
+  print("You have",lives,"lives")
 
 
- def check_letters(letters,word):
+def check_letters(letter,word):
   """
-  Function cheack the right and wrong letters in a word
+  Function check the right and wrong letters in a word
   """
   global output
   for i in range(0,len(word)):
-    print("_",end=" ")
     letter = word[i]
     if guess == letter:
       output[i] = guess
       if'__' not in output:
         return True
-        print("Well done")
       else:
           return False
       
 while gameWon == False and lives > 0:
+  print(output)
   guess =input("Guess a letter or an entire word:").lower()
-  if len(guess) != 1:
-    print("Please enter a single letter")
-  elif not guess.isalpha():
-      print("Please enter a letter")
-  else:
-      #  return guess
-    guess = guess.lower()
+  guess = guess.lower()
   
-
   if guess == word:
     gameWon = True
-  else:
-    lives -= 1
-
+    output = word
+    if len(guess) == 1 and guess in word:
+      gameWon = check_letter(guess,word)
+    else:
+        live -= 1
 if gameWon:
   print("Well done you are win")
 else:
     print("YOU FAILED the word was:",word)
   
+
+
+
 def play_again():
   """
   Ask the user play again
