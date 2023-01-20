@@ -72,34 +72,41 @@ sleep(1)
 
 def game_start():
   """
-Instructions for game 
+  Instructions for game 
   """
-print("Welcome Dear Friend! It is time for game.\n")
-name = input(f"{Fore.RED+Style.BRIGHT}What is your name?\n")
+  print("Welcome Dear Friend! It is time for game.\n")
+  name = input(f"{Fore.RED+Style.BRIGHT}What is your name?\n")
 
-print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
-print("--------------------------------------")
-print("Please read the following instructions\n"
-      "to find your way to and trough the game.\n")
-print(
-  "1.You have to guess the secret word one letter at a time\n before you are out of lives.\n"
-)
-print(
-  "2.After each incorrectly answered letter your Hangman will start to  build.\n"
-)
-print(f"3. {Fore.RED+Style.BRIGHT}You have only 6 tries")
-print(
-  "When you reach 0 lives. You will be Hanged!\n Don't worry you can restart the game!"
-)
-print("Good luck ! " + name)
-print()
-print("============================")
-print(f"{Fore.BLUE+Style.BRIGHT}Try to guess the Word")
+  print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
+  print("--------------------------------------")
+  print("Please read the following instructions\n"
+        "to find your way to and trough the game.\n")
+  print(
+    "1.You have to guess the secret word one letter at a time\n before you are out of lives.\n"
+  )
+  print(
+    "2.After each incorrectly answered letter your Hangman will start to  build.\n"
+  )
+  print(f"3. {Fore.RED+Style.BRIGHT}You have only 6 tries")
+  print(
+    "When you reach 0 lives. You will be Hanged!\n Don't worry you can restart the game!"
+  )
+  print("Good luck ! " + name)
+  print()
+  print("============================")
+  print(f"{Fore.BLUE+Style.BRIGHT}Try to guess the Word")
+
+
+# game_start()
 
 
 def get_random_word():
-  word = random.choice(WORDS)
+  # global word
+  word = random.choice(words.WORDS)
+  print(word)
   return word.upper()
+
+# get_random_word()
 
 def hangman_play():
   output = "_"*len(word)
@@ -111,8 +118,9 @@ def hangman_play():
   print(display_hangman(lives))
   print(output)
   print("\n")
+  word = get_random_word()
 
-
+ 
   while not guessed and lives > 0:
     guess = input("Please enter a letter or word").upper()
     if len(guess) == 1 and guess.isalpha():
@@ -134,7 +142,7 @@ def hangman_play():
             guessed = True
           elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
-              print("You already gueesd teh word", guess)
+              print("You already gueesd the word", guess)
           elif guess != word:
               print(guess,"is not the word")
           lives -=1
@@ -144,88 +152,91 @@ def hangman_play():
               output = word
     else:
               print:("Not a valid guess")
-
               print(display_hangman(lives))
               print(output)
               print("\n")
               if guessed:
-                print("Congrs you guees the word you win ")
+                print("Congrs you guess the word you win ")
               else:
                 print("Sorry you lost.")
 def main():
   """
   Function to return a game from beginning
   """
+  game_start()
   word = get_random_word()
-  play(word)
+  # play(word)
   while input("Play again?(N/Y").upper()=="Y":
     word = get_random_word()
-  play(word)
-  if _name_ == "_main_":
-           main()
-def display_hangman(lives):
-  """
-  Display hangman structure after each wrong letter
-  """
-hangman = [
-  '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========''', 
-  '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========''', 
-  '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========''', 
-  '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', 
-  '''
-  +---+
-  |   |
-  O   |
- /|\ 
-      |
-      |
-=========''', 
-  '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========''', 
-  '''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-========='''
+  # play(word)
+
+if __name__ == "__main__":
+  main()
+
+
+# def display_hangman(lives):
+#   """
+#   Display hangman structure after each wrong letter
+#   """
+# hangman = [
+#   '''
+#   +---+
+#   |   |
+#       |
+#       |
+#       |
+#       |
+# =========''', 
+#   '''
+#   +---+
+#   |   |
+#   O   |
+#       |
+#       |
+#       |
+# =========''', 
+#   '''
+#   +---+
+#   |   |
+#   O   |
+#   |   |
+#       |
+#       |
+# =========''', 
+#   '''
+#   +---+
+#   |   |
+#   O   |
+#  /|   |
+#       |
+#       |
+# =========''', 
+#   '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\ 
+#       |
+#       |
+# =========''', 
+#   '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  /    |
+#       |
+# =========''', 
+#   '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  / \  |
+#       |
+# ========='''
   
-]
+# ]
 
 
   
