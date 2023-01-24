@@ -62,7 +62,7 @@ def display_hangman(lives):
         |
   ========='''
     ]
-  return stage[lives]
+  return hangman[lives]
 
 """
   Greeting function with logo  and welcome the player to begin the game
@@ -133,8 +133,8 @@ def hangman_play():
     print("The word is:",secred_word, "\n")
 
     if "_" not in secred_word:
-            game_won = True
-            hangman_won =True
+        game_won = True
+        hangman_won =True
 
 # geussing letters in a secred word, all guess full word and win
     guess = input("Please enter a letter or word:").upper()
@@ -154,10 +154,10 @@ def hangman_play():
         correct_letters.append(guess)
     elif len(guess) == len(word) and guess.isalpha():
       if guess == word:
-        print("Congrs you guess the word you win ")
-        correct_letters.append(guess)
-        game_won = True
-        hangman_won =True
+       print("Congrs you guess the word you win ")
+       correct_letters.append(guess)
+       game_won = True
+       hangman_won =True
       else: print("Incorrect guess")
       guessed_wrong.append(guess)
       lives -=1 
@@ -171,9 +171,9 @@ def hangman_end():
   play_again = input("Do you want start game again?")
   print("Please enter 'Y' OR 'N'")
   if play_again == "Y":
-    print("Let's satrt again")
+   print("Let's satrt again")
   elif play_again =="N":
-    print("Thanks for play,see you next time")
+   print("Thanks for play,see you next time")
 
     
 def main():
