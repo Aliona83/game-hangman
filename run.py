@@ -64,127 +64,126 @@ def display_hangman(lives):
     ]
   return stage[lives]
 
-  """
+"""
   Greeting function with logo  and welcome the player to begin the game
+"""
+print(Fore.GREEN + welcome)
+sleep(1)
 
+def game_start():
   """
-  print(Fore.GREEN + welcome)
-  sleep(1)
+  Instructions for game 
+  """
+  print("Welcome Dear Friend! It is time for game.\n")
+  name = input(f"{Fore.RED+Style.BRIGHT}What is your name?\n")
 
-  def game_start():
-    """
-    Instructions for game 
-    """
-    print("Welcome Dear Friend! It is time for game.\n")
-    name = input(f"{Fore.RED+Style.BRIGHT}What is your name?\n")
-
-    print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
-    print("--------------------------------------")
-    print("Please read the following instructions\n"
-          "to find your way to and trough the game.\n")
-    print(
-      "1.You have to guess the secret word one letter at a time\n before you are out of lives.\n"
-    )
-    print(
-      "2.After each incorrectly answered letter your Hangman will start to  build.\n"
-    )
-    print(f"3. {Fore.RED+Style.BRIGHT}You have only 6 tries")
-    print(
-      "When you reach 0 lives. You will be Hanged!\n Don't worry you can restart the game!"
-    )
-    print("Good luck ! " + name)
-    print()
-    print("============================")
-    print(f"{Fore.BLUE+Style.BRIGHT}Try to guess the Word")
+  print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
+  print("--------------------------------------")
+  print("Please read the following instructions\n"
+            "to find your way to and trough the game.\n")
+  print(
+        "1.You have to guess the secret word one letter at a time\n before you are out of lives.\n"
+      )
+  print(
+        "2.After each incorrectly answered letter your Hangman will start to  build.\n"
+      )
+  print(f"3. {Fore.RED+Style.BRIGHT}You have only 6 tries")
+  print(
+        "When you reach 0 lives. You will be Hanged!\n Don't worry you can restart the game!"
+      )
+  print("Good luck ! " + name)
+  print()
+  print("============================")
+  print(f"{Fore.BLUE+Style.BRIGHT}Try to guess the Word")
 
 
   # game_start()
 
 
-  def get_random_word():
-      """
-      Get random words
-      """
-      word = random.choice(words.words)
-      return word.upper()
+def get_random_word():
+  """
+  Get random words
+  """
+  word = random.choice(words)
+  return word.upper()
       
 
 
-  def hangman_play():
-      """
-       Display output for each word, guess rigth letter
-      """
-      word = get_random_word()
-      output = "_"*len(word)
-      guessed = False
-      correct_letters = []
-      guessed_wrong = []
-      lives = 6
-      game_won = False
-      hangman_won = False
+def hangman_play():
+  """
+  Display output for each word, guess rigth letter
+  """
+  word = get_random_word()
+  output = "_"*len(word)
+  guessed = False
+  correct_letters = []
+  guessed_wrong = []
+  lives = 6
+  game_won = False
+  hangman_won = False
 
-      while not game_won and lives > 0:
-        secred_word =''
-        for letter in word:
-          if letter in correct_letters:
-            word += letter
-          else:
-              word = ''
-              
-              print("The word is:",secred_word, "\n")
+  while not game_won and lives > 0:
+    secred_word =''
+    for letter in word:
+     if letter in correct_letters:
+        word += letter
+    else:
+          word = ''
+          
+    print("The word is:",secred_word, "\n")
 
-              if "_" not in secred_word:
-                game_won = True
-                hangman_won =True
+    if "_" not in secred_word:
+            game_won = True
+            hangman_won =True
 
-   # geussing letters in a secred word, all guess full word and win
-        guess = input("Please enter a letter or word").upper()
+# geussing letters in a secred word, all guess full word and win
+    guess = input("Please enter a letter or word:").upper()
 
-        if len(guess) == 1 and guess.isalpha():
-          if guess in correct_letters or guess in guessed_wrong:
-            print("You already guessed the letter",guess)
+    if len(guess) == 1 and guess.isalpha():
+      if guess in correct_letters or guess in guessed_wrong:
+        print("You already guessed the letter",guess)
 
-          elif guess not in word:
-            print(guess,"is not in the word")
-            guessed_wrong.append(guess)
-            lives -=1
-            print(display_hangman(lives))
-           
-          else:
-            print("Good job!",guess,"is in the word!")
-            correct_letters.append(guess)
-        elif len(guess) == len(word) and guess.isalpha():
-            if guess == word:
-              print("Congrs you guess the word you win ")
-              correct_letters.append(guess)
-              game_won = True
-              hangman_won =True
-            else: print("Incorrect guess")
-            guessed_wrong.append(guess)
-            lives -=1 
-            print(display_hangman(lives))
-
-    
-
-
-
-  def hangman_end():
-    play_again = input("Do you want start game again?")
-    print("Please enter 'Y' OR 'N'")
-    if play_again == "Y":
-     print("Let's satrt again")
-    elif play_again =="N":
-      print("Thanks for play,see you next time")
+      elif guess not in word:
+        print(guess,"is not in the word")
+        guessed_wrong.append(guess)
+        lives -=1
+        print(display_hangman(lives))
+      
+      else:
+        print("Good job!",guess,"is in the word!")
+        correct_letters.append(guess)
+    elif len(guess) == len(word) and guess.isalpha():
+      if guess == word:
+        print("Congrs you guess the word you win ")
+        correct_letters.append(guess)
+        game_won = True
+        hangman_won =True
+      else: print("Incorrect guess")
+      guessed_wrong.append(guess)
+      lives -=1 
+      print(display_hangman(lives))
 
     
-  def main():
-      """
-      Function to return a game from beginning
-      """
-      game_start()
-      hangman_play()
+
+
+
+def hangman_end():
+  play_again = input("Do you want start game again?")
+  print("Please enter 'Y' OR 'N'")
+  if play_again == "Y":
+    print("Let's satrt again")
+  elif play_again =="N":
+    print("Thanks for play,see you next time")
+
+    
+def main():
+  """
+  Function to return a game from beginning
+  """
+  game_start()
+  hangman_play()
 
   
-  main()
+main()
 
 
