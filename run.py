@@ -137,7 +137,7 @@ def display_hangman(lives):
                 game_won = True
                 hangman_won =True
 
-
+   # geussing letters in a secred word, all guess full word and win
         guess = input("Please enter a letter or word").upper()
 
         if len(guess) == 1 and guess.isalpha():
@@ -163,10 +163,14 @@ def display_hangman(lives):
             guessed_wrong.append(guess)
             lives -=1 
             print(display_hangman(lives))
-              
+
+    
+
+
 
   def hangman_end():
     play_again = input("Do you want start game again?")
+    print("Please enter 'Y' OR 'N'")
     if play_again == "Y":
      print("Let's satrt again")
     elif play_again =="N":
