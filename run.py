@@ -10,7 +10,7 @@ from graffiti import welcome
 
 colorama.init(autoreset=True)
 def display_hangman(lives):
- hangman = ['''
+    hangman = ['''
   +---+
   |   |
       |
@@ -61,7 +61,8 @@ def display_hangman(lives):
       |
 =========''']
 
- return hangman[lives]
+    return hangman[lives]
+
 
 """
   Greeting function with logo  and welcome the player to begin the game
@@ -69,7 +70,9 @@ def display_hangman(lives):
 print(Fore.GREEN + welcome)
 sleep(1)
 
+
 def game_start():
+
   """
   Instructions for game 
   """
@@ -79,17 +82,20 @@ def game_start():
   print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
   print("--------------------------------------")
   print("Please read the following instructions\n"
-            "to find your way to and trough the game.\n")
+        "to find your way to and trough the game.\n")
   print(
-        "1.You have to guess the secret word one letter at a time\n before you are out of lives.\n"
+        "1.You have to guess the secret word one letter at a time \n"
+        "before you are out of lives.\n"
       )
   print(
-        "2.After each incorrectly answered letter your Hangman will start to  build.\n"
+        "2.After each incorrectly answered \n"
+        "letter your Hangman will start to  build.\n"
       )
-  print(f"3. {Fore.RED+Style.BRIGHT}You have only 6 tries")
+  print(f"3. {Fore.RED+Style.BRIGHT}You have only 7 tries")
   print()
   print(
-        "When you reach 0 lives. You will be Hanged!\n Don't worry you can restart the game!"
+        "When you reach 0 lives. You will be Hanged!\n"
+        "Don't worry you can restart the game!"
       )
   print("Good luck ! " + name)
   print()
@@ -97,7 +103,6 @@ def game_start():
   print(f"{Fore.BLUE+Style.BRIGHT}Try to guess the Word")
   print()
 
-  # game_start()
 
 
 def get_random_word():
@@ -105,8 +110,9 @@ def get_random_word():
   Get random words
   """
   word = random.choice(words)
-  while'_' in word or ' ' in word:
-    word = random.choice(words)
+  print(word)
+  
+  word = random.choice(words)
   return word.upper()
       
 
@@ -120,7 +126,7 @@ def hangman_play():
   guessed = False
   correct_letters = []
   guessed_wrong = []
-  lives = 6
+  lives = 7
   game_won = False
   hangman_won = False
   
@@ -130,7 +136,7 @@ def hangman_play():
      if letter in correct_letters:
         word += letter
     else:
-          word = ''
+        word = ''
     print("The word is:",word, "\n")
     if "_" not in word:
         game_won = True
@@ -141,14 +147,14 @@ def hangman_play():
 
   if len(guess) == 1 and guess.isalpha():
     if guess in correct_letters or guess in guessed_wrong:
-      print(f"{Fore.RED+Style.BRIGHT}You already guessed the letter",guess)
+      print(f"{Fore.RED+Style.BRIGHT}You already guessed the letter", guess)
 
     elif guess not in word:
-      print(guess,f"{Fore.RED+Style.BRIGHT}is not in the word")
+      print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
       guessed_wrong.append(guess)
       lives -=1
       print(display_hangman(lives))
-      
+  
     else:
       print(f"{Fore.GREEN+Style.BRIGHT}Good job!",guess,"is in the word!")
       correct_letters.append(guess)
@@ -158,26 +164,30 @@ def hangman_play():
      print("Congrs you guess the word you win ")
      correct_letters.append(guess)
      game_won = True
-    hangman_won =True
-  else: print("Incorrect guess")
-  guessed_wrong.append(guess)
-  lives -=1 
-  print(display_hangman(lives))
+     hangman_won =True
+  else: 
+    print("Incorrect guess")
+    guessed_wrong.append(guess)
+    lives -= 1 
+    print(display_hangman(lives))
 
     
 def hangman_end():
   """
   Function to start game from beggining
   """
+
   play_again = input("Do you want start game again?")
   
   print("Please enter 'Y' OR 'N'")
+
   if play_again == "Y":
    print("Let's satrt again")
-  elif play_again =="N":
+  elif play_again == "N":
+
    print("Thanks for play,see you next time")
 
-    
+
 def main():
   """
   Function to return a game from beginning
@@ -185,7 +195,5 @@ def main():
   game_start()
   hangman_play()
 
-  
+
 main()
-
-
