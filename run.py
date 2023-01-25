@@ -8,7 +8,10 @@ from colorama import Fore, Style
 
 from graffiti import welcome
 
+
 colorama.init(autoreset=True)
+
+
 def display_hangman(lives):
     hangman = ['''
   +---+
@@ -63,10 +66,9 @@ def display_hangman(lives):
 
     return hangman[lives]
 
-
-"""
-  Greeting function with logo  and welcome the player to begin the game
-"""
+    """
+    Greeting function with logo  and welcome the player to begin the game
+    """
 print(Fore.GREEN + welcome)
 sleep(1)
 
@@ -161,7 +163,7 @@ def hangman_play():
     
   elif len(guess) == len(word) and guess.isalpha(): 
     if guess == word:
-     print("Congrs you guess the word you win ")
+     print(f"{Fore.GREEN+Style.BRIGHT}Congrs you guess the word you win ")
      correct_letters.append(guess)
      game_won = True
      hangman_won =True
