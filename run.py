@@ -129,44 +129,48 @@ def hangman_play():
     game_won = False
     hangman_won = False
     while not game_won and lives > 0:
-    word = '_'
+      word = '_'
     for letter in word:
-    if letter in correct_letters:
-    word += letter
+      if letter in correct_letters:
+        word += letter
     else:
-    word = ''
+     word = ''
     print("The word is:", word, "\n")
     if "_" not in word:
-    game_won = True
+      game_won = True
     hangman_won = True
 
 # geussing letters in a secred word, all guess full word and win
     guess = input("Please enter a letter or word:").upper()
     if len(guess) == 1 and guess.isalpha():
-    if guess in correct_letters or guess in guessed_wrong:
-    print(f"{Fore.RED+Style.BRIGHT}You already guessed the letter", guess)
+      if guess in correct_letters or guess in guessed_wrong:
+        print(f"{Fore.RED+Style.BRIGHT}You already guessed the letter", guess)
 
     elif guess not in word:
-    print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
-    guessed_wrong.append(guess)
-    lives -= 1
-    print(display_hangman(lives))
-  
+      print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
+      guessed_wrong.append(guess)
+      lives -= 1
+      print(display_hangman(lives))
     else:
-    print(f"{Fore.GREEN+Style.BRIGHT}Good job!",guess,"is in the word!")
-    correct_letters.append(guess)
-    elif len(guess) == len(word) and guess.isalpha(): 
-    if guess == word:
-    print(f"{Fore.GREEN+Style.BRIGHT}Congrs you guess the word you win ")
-    correct_letters.append(guess)
-    game_won = True
-    hangman_won =True
-    else: 
+     print(f"{Fore.GREEN+Style.BRIGHT}Good job!", guess, "is in the word!")
+     correct_letters.append(guess)
+  elif len(guess) == len(word) and guess.isalpha():
+      if guess == word:
+      print(f"{Fore.GREEN+Style.BRIGHT}Congrs you guess the word you win ")
+      correct_letters.append(guess)
+      game_won = True
+      hangman_won = True
+    elif guess in guessed_wrong:
+    print("you already gueesed this word")
+
+  else: 
     print("Incorrect guess")
     guessed_wrong.append(guess)
     lives -= 1 
     print(display_hangman(lives))
+else ("Please make a valid guess")
 
+print("-----------------------------------------/n")
     
 def hangman_end():
     """
@@ -178,10 +182,10 @@ def hangman_end():
     print("Please enter 'Y' OR 'N'")
 
     if play_again == "Y":
-    print("Let's satrt again")
+      print("Let's satrt again")
     elif play_again == "N":
 
-    print("Thanks for play,see you next time")
+      print("Thanks for play,see you next time")
 
 
 def main():
