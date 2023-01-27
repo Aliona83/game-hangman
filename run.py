@@ -123,8 +123,8 @@ def hangman_play():
     word = get_random_word()
     word_completion = "_" * len(word)
     game_won = False
-    correct_letters = []
-    guessed_wrong = []
+    guessed_letters = []
+    guessed_already = []
     guessed_words = []
     lives = 7
     print(word_completion)
@@ -133,19 +133,18 @@ def hangman_play():
     while not game_won and lives > 0:
         guess = input("Please enter a letter or word:").upper()
         if len(guess) == 1 and guess.isalpha():
-            if guess in correct_letters or guess in guessed_wrong:
+            if guess in guessed_letters or guess in guessed_already:
                 print(f"{Fore.RED+Style.BRIGHT}You already guessed\n"
                       "the letter", guess)
 
         elif guess not in word:
-            print( guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
+            print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
             lives -= 1
-            guessed_wrong.append(guess)
-           
+            guessed_letters.append(guess)
         else:
             print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,
                   "is in the word!")
-            correct_letters.append(guess)
+            guessed_letters.append(guess)
             output = list(word_completion)
             blank = [i for i, letter in enumerate(word) if letter == guess]
             for index in blank:
@@ -172,12 +171,13 @@ def hangman_play():
     print(word_completion)
     print("/n")
     if game_won:
-        print("Congratulation,you gueesed the word!You win")
+        print("Congratulation,you guessed the word!You win")
+        print(Fore.GREEN + win)
         print()
     else:
-        print("Sorry ,you run out of\n" 
+        print("Sorry ,you run out of\n"
               "lives.The word was" + word + "Try play again")
-
+        print(Fore.RED + lose)
 
 def hangman_end():
     """
