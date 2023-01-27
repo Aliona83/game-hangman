@@ -59,13 +59,12 @@ def display_hangman(lives):
   +---+
   |   |
   O   |
- /|\\ |
- / \ \|
+ /|\  |
+ / \  |
       |
 =========''']
     return hangman[lives]
 
-  
 
 def game_start():
 
@@ -109,9 +108,7 @@ def get_random_word():
     """
     word = random.choice(words)
     print(word)
-    return word.upper()
-    
-  
+    return word.lower()
 
 
 def hangman_play():
@@ -121,59 +118,56 @@ def hangman_play():
 
     word = get_random_word()
     word_completion = "_" * len(word)
-    guessed = False
+    game_won = False
     correct_letters = []
     guessed_wrong = []
-    lives = 6
-    game_won = False
-    hangman_won = False
-
-    while not game_won and lives > 0:
-        # word = '_'
-        # for letter in word:
-        #     if letter in correct_letters:
-        #         word += letter
-        #     else:
-        #         word = ''
-        # print("The word is:", word, "\n")
-        # if "_" not in word:
-        #     game_won = True
-        #     hangman_won = True
+    guessed_words = []
+    lives = 7
+    print(word_completion)
 
 # geussing letters in a secred word, all guess full word and win
-        guess = input("Please enter a letter or word:").upper()
+    while not game_won and lives > 0:
+        guess = input("Please enter a letter or word:").lower()
         if len(guess) == 1 and guess.isalpha():
             if guess in correct_letters or guess in guessed_wrong:
                 print(f"{Fore.RED+Style.BRIGHT}You already guessed\n"
                       "the letter", guess)
 
-            elif guess not in word:
-                print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
-                guessed_wrong.append(guess)
-                lives -= 1
-                print(display_hangman(lives))
-            else:
-                print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,
-                      "is in the word!")
-                correct_letters.append(guess)
-        elif len(guess) == len(word) and guess.isalpha():
-            if guess == word:
-                print(f"{Fore.GREEN+Style.BRIGHT}Congrs you guess\n"
-                      "the word you win ")
-            correct_letters.append(guess)
-            game_won = True
-            hangman_won = True
-        elif guess in guessed_wrong:
-              print("you already gueesed this word")
+        elif guess not in word:
+            print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
+            lives -= 1
+            guessed_wrong.append(guess)
         else:
-              print("Incorrect guess")
-              guessed_wrong.append(guess)
-              lives -= 1
-              print(display_hangman(lives))
+            print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,
+                  "is in the word!")
+            correct_letters.append(guess)
+            output = list(word_completion)
+            blank = [i for i, letter in enumerate(word) if letter == guess]
+            for index in blank:
+                output[index] = guess
+                word_completion = "".join(output)
+                if "_" not in word_completion:
+                    game_won = True
+        elif len(guess) == len(word) and guess.isalpha():
+    if guess in guessed_words:
+            print(f"{Fore.GREEN+Style.BRIGHT}You already guess the word", guess,)
+    elif guess != word:
+        print(guess, "is not the word.")
+        lives -= 1
+        guessed_words = word
     else:
-        print("Please make a valid guess")
-
-    print("-----------------------------------------/n")
+        game_won = True
+        word_completion = word
+        else:
+        print("Incorrect guess")
+    print(display_hangman(lives))
+    print(word_completion)
+    print("/n")
+    if game_won:
+        print("Congratulation,you gueesed the word!You win")
+        print()
+    else:
+        print("Sorry ,you run out of lives.The word was" + word + "Try play again")
 
 
 def hangman_end():
@@ -198,5 +192,5 @@ def main():
     """
     game_start()
     hangman_play()
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": 
+ main()
