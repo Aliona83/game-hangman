@@ -61,7 +61,8 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
    * [Patorjk.com]() for converting text to acii art.
    * [Colorama]() For producing colored terminal text.
    * [Programize](https://www.programiz.com/python-programming/time/sleep) - Found the necessary tutorials and examples for my project.
-
+   * [Random words](https://randomwordgenerator.com/)
+   
 ## Design(add about colours I used, graffiti "welcome")
 ***
 

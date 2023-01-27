@@ -6,13 +6,17 @@ import colorama
 
 from colorama import Fore, Style
 
-from graffiti import welcome
+from graffiti import welcome, win, lose
 
 
 colorama.init(autoreset=True)
 
 
 def display_hangman(lives):
+
+    """
+    Structure for Hangman display
+    """
     hangman = ['''
   +---+
   |   |
@@ -108,7 +112,7 @@ def get_random_word():
     """
     word = random.choice(words)
     print(word)
-    return word.lower()
+    return word.upper()
 
 
 def hangman_play():
@@ -127,17 +131,17 @@ def hangman_play():
 
 # geussing letters in a secred word, all guess full word and win
     while not game_won and lives > 0:
-        guess = input("Please enter a letter or word:").lower()
+        guess = input("Please enter a letter or word:").upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in correct_letters or guess in guessed_wrong:
                 print(f"{Fore.RED+Style.BRIGHT}You already guessed\n"
                       "the letter", guess)
 
         elif guess not in word:
-            print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
+            print( guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
             lives -= 1
             guessed_wrong.append(guess)
-            print(f"You have left: {lives}")
+           
         else:
             print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,
                   "is in the word!")
@@ -164,6 +168,7 @@ def hangman_play():
     else:
         print("Incorrect guess")
     print(display_hangman(lives))
+    print(f"You have left: {lives}")
     print(word_completion)
     print("/n")
     if game_won:
@@ -176,7 +181,7 @@ def hangman_play():
 
 def hangman_end():
     """
-    Function to start game from beggining
+    Function to start game from begining
     """
 
     play_again = input("Do you want start game again?")
