@@ -17,6 +17,7 @@ Image of game
     * Flowchart
  * Deployment
  * Credits 
+ * Testing
 
 ## Project Overview
 ***
@@ -47,7 +48,7 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
  ### Start Game
    * ![Username and rules for game](/assets/images/username.png)
    * ![Game rules]()
-   When the user will type his name will apparewelcome message with his name. Below will appear the rules of the game with which the user can get acquainted before starting play game Hangman.
+   When the user will type his name will appare welcome message with his name. Below will appear the rules of the game with which the user can get acquainted before starting play game Hangman.
  ### Hangman Game
    * 
    * 
@@ -61,7 +62,13 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
    * [Colorama]() For producing colored terminal text.
    * [Programize](https://www.programiz.com/python-programming/time/sleep) - Found the necessary tutorials and examples for my project.
 
-## Design
+## Design(add about colours I used, graffiti "welcome")
+***
+
+### Flowchart
+
+This flowchart contains the entire structure of the game. The flowchart was created in stages of how the game will run. This diagram help me to think how I will start coding. flow maps out the order of everything that can happend in the Hangman game completely. 
+![Algorithm](assets/images/algorithm.png)
 ## Deployment
 ***
 This project was deployed using Code Institute's mock terminal for Heroku. Below are the steps I followed to be able to deploy the terminal to the website:
@@ -72,14 +79,54 @@ This project was deployed using Code Institute's mock terminal for Heroku. Below
   4.Link the Heroku app to the repository on GitHub.
   5.Click on Deploy.
 
+### Create Repository
+  
+For this I used Github.
+
+ * Go to your profile, and press on "Repositories".
+ * Press "New" (Big green button).
+ * There I chose to use a template from Code Institute to have everything I needed for this project.
+ * Named my project "daily-math".
+ * Then clicked on "Create repository".
+ * Onces created, I opened the repository and clicked on "Gitpod" to create a new workplace.
+
+### Fork Repository on GitHub
+
+A copy of the GitHub Repository can be made by forking the GitHub account. Changes can be made on this copy without affecting the origional repository.
+
+* Log in to GitHub and locate the repository in question.
+* Locate the Fork button which can be found in the top corner, right-hand side of the page, inline with the repository name.
+* Click this button to create a copy of the origional repository in your GitHub Account.
+
+###  To Clone The Repository on GitHub
+
+* Click on the code button which is underneath the main tab and repository name to the right.
+* In the "Clone with HTTPS' section, click on the clipboard icon to copy the URL.
+* Open Git Bash in your IDE of choice.
+* Change the current working directory to where you wan the cloned directory to be made.
+* Type git clone, and then paste the URL copied form GitHub.
+* Press enter and the clone of your repository will be created.
 
 ## Credits
+***
+ * Slack community for information and also the few that helped me with the issues what I got. 
+ * My mentor Mitko_mentor for continuous helpful feedback, motivating, help when struggling with parts of my code.
+ * 
 ## Bugs
- ### Issues and bugs
+***
+Bugs and erros econountered during coding of project were solved through contiuned testing throught the development. Using print statements and through git terminal python3 run.py. Testing code to see what the code was doing and how it was responding as well as locating any errors that might be brought up in the problems part of git. Code was also run through the PEP8 during development for the same reason.
+
+  * I did as new to python have many syntax errors as wells as indent errors and white space errors.
   * 
+  * 
+  * 
+  * 
+
 ### Fixed Issues
 
-
+## Testing
+***
+* PEP8  Python Validator 
 
 
 
