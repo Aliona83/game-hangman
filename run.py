@@ -65,18 +65,16 @@ def display_hangman(lives):
 =========''']
     return hangman[lives]
 
-    """
-    Greeting function with logo  and welcome the player to begin the game
-    """
-    print(Fore.GREEN + welcome)
-    sleep(1)
-
+  
 
 def game_start():
 
     """
     Instructions for game
     """
+    print(Fore.GREEN + welcome)
+    sleep(1)
+
     print("Welcome Dear Friend! It is time for game.\n")
     name = input(f"{Fore.RED+Style.BRIGHT}What is your name?\n")
 
@@ -112,8 +110,8 @@ def get_random_word():
     word = random.choice(words)
     print(word)
     return word.upper()
-    word_completion = "_" * len(word)
-    print(word_completion)
+    
+  
 
 
 def hangman_play():
@@ -122,24 +120,25 @@ def hangman_play():
     """
 
     word = get_random_word()
+    word_completion = "_" * len(word)
     guessed = False
     correct_letters = []
     guessed_wrong = []
-    lives = 7
+    lives = 6
     game_won = False
     hangman_won = False
 
     while not game_won and lives > 0:
-        word = '_'
-        for letter in word:
-            if letter in correct_letters:
-                word += letter
-            else:
-                word = ''
-        print("The word is:", word, "\n")
-        if "_" not in word:
-            game_won = True
-            hangman_won = True
+        # word = '_'
+        # for letter in word:
+        #     if letter in correct_letters:
+        #         word += letter
+        #     else:
+        #         word = ''
+        # print("The word is:", word, "\n")
+        # if "_" not in word:
+        #     game_won = True
+        #     hangman_won = True
 
 # geussing letters in a secred word, all guess full word and win
         guess = input("Please enter a letter or word:").upper()
@@ -199,5 +198,5 @@ def main():
     """
     game_start()
     hangman_play()
-
+if __name__ == "__main__":
     main()
