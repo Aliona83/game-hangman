@@ -137,6 +137,7 @@ def hangman_play():
             print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
             lives -= 1
             guessed_wrong.append(guess)
+            print(f"You have left: {lives}")
         else:
             print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,
                   "is in the word!")
@@ -145,20 +146,22 @@ def hangman_play():
             blank = [i for i, letter in enumerate(word) if letter == guess]
             for index in blank:
                 output[index] = guess
-                word_completion = "".join(output)
-                if "_" not in word_completion:
-                    game_won = True
-        elif len(guess) == len(word) and guess.isalpha():
-    if guess in guessed_words:
-            print(f"{Fore.GREEN+Style.BRIGHT}You already guess the word", guess,)
-    elif guess != word:
-        print(guess, "is not the word.")
-        lives -= 1
-        guessed_words = word
+            word_completion = "".join(output)
+            if "_" not in word_completion:
+                game_won = True
+            #    break
+            elif len(guess) == len(word) and guess.isalpha():
+                if guess in guessed_words:
+                    print(f"{Fore.GREEN+Style.BRIGHT}You already\n"
+                          "guess the word", guess,)
+            elif guess != word:
+                print(guess, "is not the word.")
+                lives -= 1
+                guessed_words = word
+            else:
+                game_won = True
+                word_completion = word
     else:
-        game_won = True
-        word_completion = word
-        else:
         print("Incorrect guess")
     print(display_hangman(lives))
     print(word_completion)
@@ -167,7 +170,8 @@ def hangman_play():
         print("Congratulation,you gueesed the word!You win")
         print()
     else:
-        print("Sorry ,you run out of lives.The word was" + word + "Try play again")
+        print("Sorry ,you run out of\n" 
+              "lives.The word was" + word + "Try play again")
 
 
 def hangman_end():
@@ -193,4 +197,4 @@ def main():
     game_start()
     hangman_play()
 if __name__ == "__main__": 
- main()
+    main()
