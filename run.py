@@ -17,7 +17,7 @@ def display_hangman(lives):
     """
     Structure for Hangman display
     """
-    hangman = [ r'''
+    hangman = [ '''
   +---+
   |   |
       |
@@ -76,12 +76,20 @@ def game_start():
     Instructions for game
     """
     print(Fore.GREEN + welcome)
-    sleep(1)
+    # sleep(1)
 
     print("Welcome Dear Friend! It is time for game.\n")
-    name = input(f"{Fore.RED+Style.BRIGHT}What is your name?\n")
+    name =''
+    while True:
+        name = input("Please enter you name(use letters only):")
+        if not name.isalpha():
+          print("Enter only letters")
+          continue
+        else:
+            print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
+            break
+     
 
-    print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
     print("--------------------------------------")
     print("Please read the following instructions\n"
           "to find your way to and trough the game.\n")
@@ -132,6 +140,8 @@ def hangman_play():
 # geussing letters in a secred word, all guess full word and win
     while not game_won and lives > 0:
         guess = input("Please enter a letter or word:").lower()
+        # print(len(guess) == 1 and guess.isalpha())
+
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters or guess in guessed_already:
                 print(f"{Fore.RED+Style.BRIGHT}You already guessed\n"
@@ -141,6 +151,7 @@ def hangman_play():
             print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
             lives -= 1
             guessed_letters.append(guess)
+            print(display_hangman(lives))
         else:
             print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,
                   "is in the word!")
@@ -202,5 +213,7 @@ def main():
     """
     game_start()
     hangman_play()
-if __name__ == "__main__": 
-    main()
+
+    
+
+main()
