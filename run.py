@@ -17,7 +17,7 @@ def display_hangman(lives):
     """
     Structure for Hangman display
     """
-    hangman = ['''
+    hangman = [ r'''
   +---+
   |   |
       |
@@ -49,14 +49,14 @@ def display_hangman(lives):
   +---+
   |   |
   O   |
- /|\\ |
+ /|\  |
       |
       |
 =========''', '''
   +---+
   |   |
   O   |
- /|\\ |
+ /|\  |
  /    |
       |
 =========''', '''
@@ -112,7 +112,7 @@ def get_random_word():
     """
     word = random.choice(words)
     print(word)
-    return word.upper()
+    return word.lower()
 
 
 def hangman_play():
@@ -131,7 +131,7 @@ def hangman_play():
 
 # geussing letters in a secred word, all guess full word and win
     while not game_won and lives > 0:
-        guess = input("Please enter a letter or word:").upper()
+        guess = input("Please enter a letter or word:").lower()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters or guess in guessed_already:
                 print(f"{Fore.RED+Style.BRIGHT}You already guessed\n"
@@ -175,9 +175,10 @@ def hangman_play():
         print(Fore.GREEN + win)
         print()
     else:
-        print("Sorry ,you run out of\n"
-              "lives.The word was" + word + "Try play again")
+        print("Sorry ,you run out of \n"
+              "lives.The word was"  +  word  + ".Try play again")
         print(Fore.RED + lose)
+
 
 def hangman_end():
     """
@@ -189,7 +190,7 @@ def hangman_end():
     print("Please enter 'Y' OR 'N'")
 
     if play_again == "Y":
-        print("Let's satrt again")
+        print("Let's start again")
     elif play_again == "N":
 
         print("Thanks for play,see you next time")

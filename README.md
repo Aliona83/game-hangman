@@ -47,7 +47,7 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
    At the begining of the game user will see bright welcome grafitti and after this user starts the game. After it will ask the user to type their name. The username most be only letters,if the user will enter number or symbol , an error message will shows up.
  ### Start Game
    * ![Username and rules for game](/assets/images/username.png)
-   * ![Game rules]()
+   * ![Game rules](assets/images/rules.png)
    When the user will type his name will appare welcome message with his name. Below will appear the rules of the game with which the user can get acquainted before starting play game Hangman.
  ### Hangman Game
    * 
