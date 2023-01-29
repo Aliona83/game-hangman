@@ -81,7 +81,7 @@ def game_start():
     print("Welcome Dear Friend! It is time for game.\n")
     name =''
     while True:
-        name = input("Please enter you name(use letters only):")
+        name = input("Please enter your name(use letters only):")
         if not name.isalpha():
           print("Enter only letters")
           continue
@@ -189,22 +189,23 @@ def hangman_play():
         print("Sorry ,you run out of \n"
               "lives.The word was"  +  word  + ".Try play again")
         print(Fore.RED + lose)
+        print(play_loop())
+
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
 
 
-def hangman_end():
-    """
-    Function to start game from begining
-    """
-
-    play_again = input("Do you want start game again?")
-
-    print("Please enter 'Y' OR 'N'")
-
-    if play_again == "Y":
-        print("Let's start again")
-    elif play_again == "N":
-
-        print("Thanks for play,see you next time")
+def play_loop():
+    
+  global play_again
+  play_again = input("Do you want to play again? y=yes,n=no\n")
+  while play_again not in ["y", "n", "Y", "N"]:
+    play_again = input("Do you want to play again? y =yes, n = no\n")
+  if play_again == "y":
+    clear()
+    main()
+  elif play_again == "n":
+    print("Thanks for playing! We expect you back again!")
 
 
 def main():
