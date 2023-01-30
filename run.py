@@ -8,7 +8,8 @@ from colorama import Fore, Style
 
 from graffiti import welcome, win, lose
 
-
+return_back = 0
+word = ""
 colorama.init(autoreset=True)
 
 
@@ -118,6 +119,7 @@ def get_random_word():
     """
     Get random words
     """
+    global word
     word = random.choice(words)
     print(word)
     return word.lower()
@@ -135,35 +137,43 @@ def hangman_play():
     guessed_already = []
     guessed_words = []
     lives = 7
+    hang_position = 0
     print(word_completion)
+    global return_back
 
-# geussing letters in a secred word, all guess full word and win
+# guessing letters in a secred word, all guess full word and win
     while not game_won and lives > 0:
+        if lives == 0:
+            return_back = 1
         guess = input("Please enter a letter or word:").lower()
-        # print(len(guess) == 1 and guess.isalpha())
-
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters or guess in guessed_already:
                 print(f"{Fore.RED+Style.BRIGHT}You already guessed\n"
                       "the letter", guess)
 
+            elif guess  in word:
+                 guessed_letters.append(word)
+                 if guess not in guessed_already:
+                      guessed_already.append(guess)
+            else:
+                print(f"{Fore.RED+Style.BRIGHT}Ooops,you lost 1 life!\n", lives, "remaining")
+                lives -= 1
+                hang_position += 0
+                print(display_hangman(hang_position))
         elif guess not in word:
-            print(guess, f"{Fore.RED+Style.BRIGHT}is not in the word")
-            lives -= 1
-            guessed_letters.append(guess)
-            print(display_hangman(lives))
+             print(guess,f"{Fore.GREEN+Style.BRIGHT} is in the word!")  
+             lives -= 1
+             hang_position += 1
         else:
-            print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,
-                  "is in the word!")
+            print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,"is in the word")    
             guessed_letters.append(guess)
             output = list(word_completion)
             blank = [i for i, letter in enumerate(word) if letter == guess]
             for index in blank:
-                output[index] = guess
+                 output[index] = guess
             word_completion = "".join(output)
             if "_" not in word_completion:
                 game_won = True
-            #    break
             elif len(guess) == len(word) and guess.isalpha():
                 if guess in guessed_words:
                     print(f"{Fore.GREEN+Style.BRIGHT}You already\n"
@@ -171,6 +181,7 @@ def hangman_play():
             elif guess != word:
                 print(guess, "is not the word.")
                 lives -= 1
+                hang_position += 1
                 guessed_words = word
             else:
                 game_won = True
@@ -184,11 +195,13 @@ def hangman_play():
     if game_won:
         print("Congratulation,you guessed the word!You win")
         print(Fore.GREEN + win)
+        print(play_loop())
         print()
     else:
         print("Sorry ,you run out of \n"
               "lives.The word was"  +  word  + ".Try play again")
         print(Fore.RED + lose)
+        return_back = 1
         print(play_loop())
 
 def clear():
@@ -213,8 +226,10 @@ def main():
     Function to return a game from beginning
     """
     game_start()
-    hangman_play()
-
-    
+    play_again = 1
+    while return_back != 1 and play_again == 1:
+        hangman_play()
+    play_loop()
+    return 0    
 
 main()
