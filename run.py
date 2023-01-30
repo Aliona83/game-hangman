@@ -131,7 +131,7 @@ def hangman_play():
     """
 
     word = get_random_word()
-    word_completion = "_" * len(word)
+    word_completion = "-" * len(word)
     game_won = False
     guessed_letters = []
     guessed_already = []
@@ -145,6 +145,7 @@ def hangman_play():
     while not game_won and lives > 0:
         if lives == 0:
             return_back = 1
+        
         guess = input("Please enter a letter or word:").lower()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters or guess in guessed_already:
@@ -153,17 +154,19 @@ def hangman_play():
 
             elif guess  in word:
                  guessed_letters.append(word)
+                 print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
                  if guess not in guessed_already:
                       guessed_already.append(guess)
             else:
                 print(f"{Fore.RED+Style.BRIGHT}Ooops,you lost 1 life!\n", lives, "remaining")
-                lives -= 1
-                hang_position += 0
                 print(display_hangman(hang_position))
+                lives -= 1
+                hang_position += 1
         elif guess not in word:
              print(guess,f"{Fore.GREEN+Style.BRIGHT} is in the word!")  
              lives -= 1
              hang_position += 1
+             print(word_completion = "".join(output))
         else:
             print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,"is in the word")    
             guessed_letters.append(guess)
@@ -172,7 +175,7 @@ def hangman_play():
             for index in blank:
                  output[index] = guess
             word_completion = "".join(output)
-            if "_" not in word_completion:
+            if "-" not in word_completion:
                 game_won = True
             elif len(guess) == len(word) and guess.isalpha():
                 if guess in guessed_words:
@@ -188,9 +191,6 @@ def hangman_play():
                 word_completion = word
     else:
         print("Incorrect guess")
-    print(display_hangman(lives))
-    print(f"You have left: {lives}")
-    print(word_completion)
     print("/n")
     if game_won:
         print("Congratulation,you guessed the word!You win")
@@ -228,8 +228,8 @@ def main():
     game_start()
     play_again = 1
     while return_back != 1 and play_again == 1:
-        hangman_play()
-    play_loop()
+     hangman_play()
+     play_loop()
     return 0    
 
 main()
