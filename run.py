@@ -132,6 +132,7 @@ def hangman_play():
 
     word = get_random_word()
     word_completion = "-" * len(word)
+    output = list(word_completion)
     game_won = False
     guessed_letters = []
     guessed_already = []
@@ -153,24 +154,25 @@ def hangman_play():
                       "the letter", guess)
 
             elif guess  in word:
-                 guessed_letters.append(word)
+                 guessed_letters.append(guessed_letters)
                  print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
                  if guess not in guessed_already:
                       guessed_already.append(guess)
             else:
                 print(f"{Fore.RED+Style.BRIGHT}Ooops,you lost 1 life!\n", lives, "remaining")
+                print("Letter:", guess, f"{Fore.RED+Style.BRIGHT}is not the word.")
                 print(display_hangman(hang_position))
                 lives -= 1
                 hang_position += 1
+
+            
         elif guess not in word:
              print(guess,f"{Fore.GREEN+Style.BRIGHT} is in the word!")  
              lives -= 1
              hang_position += 1
              print(word_completion = "".join(output))
-        else:
-            print(f"{Fore.GREEN+Style.BRIGHT}Good job!\n", guess,"is in the word")    
+        else:   
             guessed_letters.append(guess)
-            output = list(word_completion)
             blank = [i for i, letter in enumerate(word) if letter == guess]
             for index in blank:
                  output[index] = guess
@@ -178,14 +180,12 @@ def hangman_play():
             if "-" not in word_completion:
                 game_won = True
             elif len(guess) == len(word) and guess.isalpha():
-                if guess in guessed_words:
                     print(f"{Fore.GREEN+Style.BRIGHT}You already\n"
                           "guess the word", guess,)
             elif guess != word:
-                print(guess, "is not the word.")
                 lives -= 1
                 hang_position += 1
-                guessed_words = word
+                # guessed_words = word
             else:
                 game_won = True
                 word_completion = word
