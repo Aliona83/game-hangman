@@ -1,5 +1,5 @@
 import random
-from words import words
+from words import words,hangman
 from time import sleep
 import os
 import colorama
@@ -13,62 +13,9 @@ word = ""
 colorama.init(autoreset=True)
 
 
-def display_hangman(lives):
 
-    """
-    Structure for Hangman display
-    """
-    hangman = [ '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========''']
-    return hangman[lives]
+    
+   
 
 
 def game_start():
@@ -121,7 +68,6 @@ def get_random_word():
     """
     global word
     word = random.choice(words)
-    print(word)
     return word.lower()
 
 
@@ -131,78 +77,50 @@ def hangman_play():
     """
 
     word = get_random_word()
-    word_completion = "-" * len(word)
-    output = list(word_completion)
+    display= "-" * len(word)
+    print(display)
     game_won = False
-    guessed_letters = []
     guessed_already = []
-    guessed_words = []
-    lives = 7
+    lives = len(hangman)
     hang_position = 0
-    print(word_completion)
     global return_back
 
 # guessing letters in a secred word, all guess full word and win
     while not game_won and lives > 0:
         if lives == 0:
             return_back = 1
-        
-        guess = input("Please enter a letter or word:").lower()
-        if len(guess) == 1 and guess.isalpha():
-            if guess in guessed_letters or guess in guessed_already:
-                print(f"{Fore.RED+Style.BRIGHT}You already guessed\n"
-                      "the letter", guess)
-
-            elif guess  in word:
-                 guessed_letters.append(guessed_letters)
-                 print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
-                 if guess not in guessed_already:
-                      guessed_already.append(guess)
-            else:
-                print(f"{Fore.RED+Style.BRIGHT}Ooops,you lost 1 life!\n", lives, "remaining")
-                print("Letter:", guess, f"{Fore.RED+Style.BRIGHT}is not the word.")
-                print(display_hangman(hang_position))
-                lives -= 1
-                hang_position += 1
-
-            
-        elif guess not in word:
-             print(guess,f"{Fore.GREEN+Style.BRIGHT} is in the word!")  
+        guess = input("Please enter a letter :").lower()
+        i = 0
+        if guess in word:
+          while word.find(guess, i) != -1:      
+             i = word.find(guess, i)
+             display = display[:i] + guess + display[i + 1:]
+             i += 1
+             print(display)
+          print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
+          if guess in guessed_already:
+            print("You aready enter this letter{guess}")
+            continue
+        else:
+          guessed_already.append(guess)
+        if guess not in word:
+             print(guess,f"{Fore.RED+Style.BRIGHT} is not the word!")
+             print(f"{Fore.RED+Style.BRIGHT}Ooops,you lost 1 life!\n", lives, "remaining")
+             print(hangman[7-lives])
              lives -= 1
-             hang_position += 1
-             print(word_completion = "".join(output))
-        else:   
-            guessed_letters.append(guess)
-            blank = [i for i, letter in enumerate(word) if letter == guess]
-            for index in blank:
-                 output[index] = guess
-            word_completion = "".join(output)
-            if "-" not in word_completion:
-                game_won = True
-            elif len(guess) == len(word) and guess.isalpha():
-                    print(f"{Fore.GREEN+Style.BRIGHT}You already\n"
-                          "guess the word", guess,)
-            elif guess != word:
-                lives -= 1
-                hang_position += 1
-                # guessed_words = word
-            else:
-                game_won = True
-                word_completion = word
-    else:
-        print("Incorrect guess")
-    print("/n")
-    if game_won:
-        print("Congratulation,you guessed the word!You win")
-        print(Fore.GREEN + win)
-        print(play_loop())
-        print()
-    else:
-        print("Sorry ,you run out of \n"
-              "lives.The word was"  +  word  + ".Try play again")
-        print(Fore.RED + lose)
-        return_back = 1
-        print(play_loop())
+        if word == display:
+          print("Congratulation, You win!")
+          print(Fore.GREEN + win)
+          game_won = True
+          print(play_loop)
+          if lives == 0:
+            print("Sorry you lost game")
+            print(Fore.RED)
+            game_won = True
+            print(play_loop)
+            
+    
+    
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
