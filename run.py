@@ -42,24 +42,24 @@ def game_start():
     sleep(1)
     print("Please read the following instructions\n"
           "to find your way to and trough the game.\n")
-    sleep(2)
+    sleep(1)
     print(
         "1.You have to guess the secret word one letter at a time \n"
         "before you are out of lives.\n"
       )
-    sleep(2) 
+    sleep(1) 
     print(
         "2.After each incorrectly answered \n"
         "letter your Hangman will start to  build.\n"
       )
-    sleep(2) 
+    sleep(1) 
     print(f"3. {Fore.RED+Style.BRIGHT}You have only 7 tries")
     print()
     print(
         "When you reach 0 lives. You will be Hanged!\n"
         "Don't worry you can restart the game!"
       )
-    sleep(2)
+    sleep(1)
     print("Good luck ! " + name)
     print()
     print("============================")
@@ -73,6 +73,7 @@ def get_random_word():
     """
     global word
     word = random.choice(words)
+    print(word)
     return word.lower()
 
 
@@ -103,28 +104,24 @@ def hangman_play():
              i += 1
              print(display)
           print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
-        else:
-          print(hangman[7-lives])
-          lives -= 1
-          guessed_already.append(guess)
-          print(guessed_already)
-        if guess not in word:
+        
+        elif guess not in word:
              print(guess,f"{Fore.RED+Style.BRIGHT} is not the word!")
-             print(f"{Fore.RED+Style.BRIGHT}Ooops,you lost 1 life!\n", lives, "remaining")
+             print(f"{Fore.RED+Style.BRIGHT}LEFT:\n", lives)
              print(hangman[7-lives])
              lives -= 1
         if word == display:
-          print("Congratulation, You win!")
-          print(Fore.GREEN + win)
-          game_won = True
-          print(play_loop)
-          if lives == 0:
-            print("Sorry you lost game")
+             print("Congratulation, You win!")
+             print(Fore.GREEN + win)
+             game_won = True
+             
+        if lives == 0:
             print(Fore.RED + lose)
             game_won = True
             print(f"{Fore.CYAN+Style.BRIGHT}THE WORD WAS ", word)
-            sleep(1) 
-            print(play_loop)
+           
+       
+          
             
     
     
