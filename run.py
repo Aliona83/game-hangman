@@ -24,7 +24,7 @@ def game_start():
     Instructions for game
     """
     print(Fore.GREEN + welcome)
-    # sleep(1)
+    sleep(1)
 
     print("Welcome Dear Friend! It is time for game.\n")
     name =''
@@ -36,25 +36,30 @@ def game_start():
         else:
             print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
             break
-     
-
+        sleep(1)
+      
     print("--------------------------------------")
+    sleep(1)
     print("Please read the following instructions\n"
           "to find your way to and trough the game.\n")
+    sleep(2)
     print(
         "1.You have to guess the secret word one letter at a time \n"
         "before you are out of lives.\n"
       )
+    sleep(2) 
     print(
         "2.After each incorrectly answered \n"
         "letter your Hangman will start to  build.\n"
       )
+    sleep(2) 
     print(f"3. {Fore.RED+Style.BRIGHT}You have only 7 tries")
     print()
     print(
         "When you reach 0 lives. You will be Hanged!\n"
         "Don't worry you can restart the game!"
       )
+    sleep(2)
     print("Good luck ! " + name)
     print()
     print("============================")
@@ -98,11 +103,11 @@ def hangman_play():
              i += 1
              print(display)
           print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
-          if guess in guessed_already:
-            print("You aready enter this letter{guess}")
-            continue
         else:
+          print(hangman[7-lives])
+          lives -= 1
           guessed_already.append(guess)
+          print(guessed_already)
         if guess not in word:
              print(guess,f"{Fore.RED+Style.BRIGHT} is not the word!")
              print(f"{Fore.RED+Style.BRIGHT}Ooops,you lost 1 life!\n", lives, "remaining")
@@ -115,8 +120,10 @@ def hangman_play():
           print(play_loop)
           if lives == 0:
             print("Sorry you lost game")
-            print(Fore.RED)
+            print(Fore.RED + lose)
             game_won = True
+            print(f"{Fore.CYAN+Style.BRIGHT}THE WORD WAS ", word)
+            sleep(1) 
             print(play_loop)
             
     
