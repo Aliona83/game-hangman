@@ -1,5 +1,5 @@
 import random
-from words import words,hangman
+from words import words, hangman
 from time import sleep
 import os
 import colorama
@@ -13,11 +13,6 @@ word = ""
 colorama.init(autoreset=True)
 
 
-
-    
-   
-
-
 def game_start():
 
     """
@@ -27,17 +22,17 @@ def game_start():
     sleep(1)
 
     print("Welcome Dear Friend! It is time for game.\n")
-    name =''
+    name = ''
     while True:
         name = input("Please enter your name(use letters only):")
         if not name.isalpha():
-          print("Enter only letters")
-          continue
+            print("Enter only letters")
+            continue
         else:
             print(f"{Fore.YELLOW+Style.BRIGHT}Hello" + " " + name,)
             break
         sleep(1)
-      
+
     print("--------------------------------------")
     sleep(1)
     print("Please read the following instructions\n"
@@ -47,12 +42,12 @@ def game_start():
         "1.You have to guess the secret word one letter at a time \n"
         "before you are out of lives.\n"
       )
-    sleep(1) 
+    sleep(1)
     print(
         "2.After each incorrectly answered \n"
         "letter your Hangman will start to  build.\n"
       )
-    sleep(1) 
+    sleep(1)
     print(f"3. {Fore.RED+Style.BRIGHT}You have only 7 tries")
     print()
     print(
@@ -81,9 +76,8 @@ def hangman_play():
     """
     Display output for each word, guess rigth letter
     """
-
     word = get_random_word()
-    display= "-" * len(word)
+    display = "-" * len(word)
     print(display)
     game_won = False
     guessed_already = []
@@ -98,49 +92,44 @@ def hangman_play():
         guess = input("Please enter a letter :").lower()
         i = 0
         if guess in word:
-          while word.find(guess, i) != -1:      
-             i = word.find(guess, i)
-             display = display[:i] + guess + display[i + 1:]
-             i += 1
-             print(display)
-          print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
-        
-        elif guess not in word:
-             print(guess,f"{Fore.RED+Style.BRIGHT} is not the word!")
-             print(f"{Fore.RED+Style.BRIGHT}LEFT:\n", lives)
-             print(hangman[7-lives])
-             lives -= 1
+            while word.find(guess, i) != -1:      
+                i = word.find(guess, i)
+                display = display[:i] + guess + display[i + 1:]
+                i += 1
+                print(display)
+                print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
+        if guess not in word:
+            print(guess, f"{Fore.RED+Style.BRIGHT} is not the word!")
+            print(f"{Fore.RED+Style.BRIGHT}LEFT:\n", lives)
+            print(hangman[7-lives])
+            lives -= 1
+
         if word == display:
-             print("Congratulation, You win!")
-             print(Fore.GREEN + win)
-             game_won = True
-             
+            print("Congratulation, You win!")
+            print(Fore.GREEN + win)
+            game_won = True
         if lives == 0:
             print(Fore.RED + lose)
             game_won = True
             print(f"{Fore.CYAN+Style.BRIGHT}THE WORD WAS ", word)
-           
-       
-          
-            
-    
-    
+            print()
+            sleep(3)
+
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 
 def play_loop():
-    
-  global play_again
-  play_again = input("Do you want to play again? y=yes,n=no\n")
-  while play_again not in ["y", "n", "Y", "N"]:
-    play_again = input("Do you want to play again? y =yes, n = no\n")
-  if play_again == "y":
-    clear()
+    global play_again
+    play_again = input("Do you want to play again? y=yes,n=no\n")
+    while play_again not in ["y", "n", "Y", "N"]:
+        play_again = input("Do you want to play again? y =yes, n = no\n")
+    if play_again == "y":
+        clear()
     main()
-  elif play_again == "n":
-    print("Thanks for playing! We expect you back again!")
+    if play_again == "n":
+         print("Thanks for playing! We expect you back again!")
 
 
 def main():
@@ -148,10 +137,11 @@ def main():
     Function to return a game from beginning
     """
     game_start()
-    play_again = 1
-    while return_back != 1 and play_again == 1:
-     hangman_play()
-     play_loop()
-    return 0    
+    # play_again = 1
+    # while return_back != 1 and play_again == 1:
+    hangman_play()
+    play_loop()
+    return 0 
+
 
 main()
