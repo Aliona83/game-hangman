@@ -1,8 +1,11 @@
 # Game Hangman
 ***
-Add link for repository
-link for life game 
-Image of game 
+
+[Link for Repository](https://github.com/Aliona83/game-hangman)
+
+[Link for Life game](https://hangman-game83.herokuapp.com/)
+
+![Image](assets/images/picture.png)
 
 ## Contents
 ***
@@ -44,6 +47,7 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
 ### Existing features
  ### Welcome page
    * ![Welcome graffiti](/assets/images/welcome.png)
+   
    At the begining of the game user will see bright welcome grafitti and after this user starts the game. After it will ask the user to type their name. The username most be only letters,if the user will enter number or symbol , an error message will shows up.
  ### Start Game
    * ![Username and rules for game](/assets/images/username.png)
@@ -59,7 +63,7 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
    * [Heroku]() to deploy the website.
    * [Diagram.net](https://app.diagrams.net/) to make a algorithm  for the game.
    * [Patorjk.com]() for converting text to acii art.
-   * [Colorama]() For producing colored terminal text.
+   * [Colorama](https://pypi.org/project/colorama/) For producing colored terminal text.
    * [Programize](https://www.programiz.com/python-programming/time/sleep) - Found the necessary tutorials and examples for my project.
    * [Random words](https://randomwordgenerator.com/)
    
@@ -122,10 +126,10 @@ Bugs and erros econountered during coding of project were solved through contiun
   * 
   * 
   * 
-
+### Testing
 ### Fixed Issues
+### Unfixed Issues
 
-## Testing
 ***
 * PEP8  Python Validator 
 
