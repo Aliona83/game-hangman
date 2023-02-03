@@ -84,7 +84,16 @@ def hangman_play():
     lives = len(hangman)
     hang_position = 0
     global return_back
+    
 
+    guess = ""
+    while not game_won and lives > 0:
+        if len(guess) > 1:
+            print("Enter singal character")
+            continue
+        if len != 1:
+         print("Please enter a single character")
+         break
 # guessing letters in a secred word, all guess full word and win
     while not game_won and lives > 0:
         if lives == 0:
@@ -115,6 +124,7 @@ def hangman_play():
             print()
             sleep(3)
 
+  
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -130,7 +140,7 @@ def play_loop():
     main()
     if play_again == "n":
          print("Thanks for playing! We expect you back again!")
-
+         quit()
 
 def main():
     """
