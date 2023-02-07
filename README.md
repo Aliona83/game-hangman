@@ -162,7 +162,21 @@ Bugs and erros econountered during coding of project were solved through contiun
   * 
   * 
 ## Testing
-     E
+  | Expected                              |                   Outcomes
+  |   :---:                               |    :---:
+  |    Checked or player can skip entering|                Player shouls enter his name to go forward
+  | his name and go forward to game       |
+  |                                       | 
+  |   b ,b,n.kml.km:LK,":l,'/l.':l.;'
+  bmn,jn,m.m/,/,l'/;l,';.,'/;,/l,/;,/,./. | gvjhgbkjhkuhjkjkllnho/ikj:Lkp:kpokiujhoug;.fg.uygb
+  |                                       |
+  |                                       |  
+  |                                       |
+  |
+  |
+  |
+
+   
 ###
 ### Unfixed Issues
 
