@@ -35,8 +35,7 @@ def game_start():
 
     print("--------------------------------------")
     sleep(1)
-    print("Please read the following instructions\n"
-          "to find your way to and trough the game.\n")
+    print(f"{Fore.BLUE+Style.BRIGHT}GAME RULES:")
     sleep(1)
     print(
         "1.You have to guess the secret word one letter at a time \n"
@@ -84,21 +83,17 @@ def hangman_play():
     lives = len(hangman)
     hang_position = 0
     global return_back
-    
+
 
     guess = ""
     while not game_won and lives > 0:
-        if len(guess) > 1:
-            print("Enter singal character")
-            continue
-        if len != 1:
-         print("Please enter a single character")
-         break
-# guessing letters in a secred word, all guess full word and win
-    while not game_won and lives > 0:
-        if lives == 0:
-            return_back = 1
-        guess = input("Please enter a letter :").lower()
+        guess = input("Enter only  single letter no numbers :").lower()
+        if len(guess) == 1  and guess.isalpha():
+            print(guess)
+            
+        else:
+           print("This is not a single letter")
+           continue
         i = 0
         if guess in word:
             while word.find(guess, i) != -1:      
@@ -137,7 +132,7 @@ def play_loop():
         play_again = input("Do you want to play again? y =yes, n = no\n")
     if play_again == "y":
         clear()
-    main()
+        main()
     if play_again == "n":
          print("Thanks for playing! We expect you back again!")
          quit()
