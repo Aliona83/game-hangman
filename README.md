@@ -46,17 +46,22 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
 ***
 ### Existing features
  ### Welcome page
+
+   At the begining of the game user will see bright welcome grafitti and after this user starts the game. 
    * ![Welcome graffiti](/assets/images/welcome.png)
    
-   At the begining of the game user will see bright welcome grafitti and after this user starts the game. After it will ask the user to type their name. 
+   The username most enter  only letters,if the user will enter number or symbol , an error message will shows up.
    * ![Error message](assets/images/usernsme.png)
     
-    The username most enter  only letters,if the user will enter number or symbol , an error message will shows up.
+    
  ### Start Game
+
+ When the user will type his name will appare welcome message with his name. Below will appear the rules of the game with which the user can get acquainted before starting play game Hangman. Each line of rules will appear gradually so the player can slowly read all rules and understand.
+
    * ![Username and rules for game](/assets/images/username.png)
    * ![Game rules](assets/images/rules.png)
    
-   When the user will type his name will appare welcome message with his name. Below will appear the rules of the game with which the user can get acquainted before starting play game Hangman. Each line of rules will appear gradually so the player can slowly read all rules and understand.
+   
  ### Hangman Game
 
     The player entering each time the correct letter will see a message that the letter is correct and the structure of the word with already guessed letters.
@@ -80,7 +85,7 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
    The same thing will appear for the player if he did not guess the word and lost all his lives, he will get a symbol "You Lose", underneath he will also be notified which word he did not guess.
    * ![Lose simbol](assets/images/lose.png)
 
-   After winnin or losing the player will be asked to play again,he will have two option n= no and y = yes. If the player wants to play again and he will press "y" ,the game will start over again. 
+   After winning or losing the player will be asked to play again,he will have two option n= no and y = yes. If the player wants to play again and he will press "y" ,the game will start over again. 
    * ![Play again](assets/images/playagain.png)
    
    
