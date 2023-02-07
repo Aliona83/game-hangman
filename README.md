@@ -155,30 +155,28 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 ## Bugs
 ***
 Bugs and erros econountered during coding of project were solved through contiuned testing throught the development. Using print statements and through git terminal python3 run.py. Testing code to see what the code was doing and how it was responding as well as locating any errors that might be brought up in the problems part of git. Code was also run through the PEP8 during development for the same reason.
+ ![Errors](assets/images/errors.png)
 
   * I did as new to python have many syntax errors as wells as indent errors and white space errors.
-  * 
+  * Some funtion didn't work as they will build wrong.
   * 
   * 
   * 
 ## Testing
-  | Expected                              |                   Outcomes
-  |   :---:                               |    :---:
-  |    Checked or player can skip entering|                Player shouls enter his name to go forward
-  | his name and go forward to game       |
-  |                                       | 
-  |   b ,b,n.kml.km:LK,":l,'/l.':l.;'
-  bmn,jn,m.m/,/,l'/;l,';.,'/;,/l,/;,/,./. | gvjhgbkjhkuhjkjkllnho/ikj:Lkp:kpokiujhoug;.fg.uygb
-  |                                       |
-  |                                       |  
-  |                                       |
-  |
-  |
-  |
-
-   
+   Expected                                                                           
+  1. The player must enter his name before continuing to play.(Pass)
+  2. The player must use only letters to enter his name.(Pass)
+  3. The player can't enter 2 or more letters at the same time. (Faile) 
+  4. Checked can player go forward if he empty input.(Faile)                                                                
+              
+              
+              
+    Outcomes  
+   * The player must enter a name if he wants to procced to the game, he will be ask to use only letters.
+   * If the player enters numbers or other symbols in his name, he will be ask again to use only letters.
+   * The code had been change, so that the player could enter only one letter at the time.
+   * If player has an empty field and he press enter, he will be asked to get a single letter.
 ###
-### Unfixed Issues
 
 ***
 * PEP8  Python Validator 
