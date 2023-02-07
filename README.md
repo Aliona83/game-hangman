@@ -63,8 +63,8 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
    
    
  ### Hangman Game
-
-    The player entering each time the correct letter will see a message that the letter is correct and the structure of the word with already guessed letters.
+  
+  The player entering each time the correct letter will see a message that the letter is correct and the structure of the word with already guessed letters.
 
    * ![Guessed right letter](assets/images/right.png)
    
@@ -162,7 +162,8 @@ Bugs and erros econountered during coding of project were solved through contiun
   * 
   * 
 ## Testing
-### Fixed Issues
+     E
+###
 ### Unfixed Issues
 
 ***

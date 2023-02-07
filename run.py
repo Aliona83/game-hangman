@@ -67,7 +67,7 @@ def get_random_word():
     """
     global word
     word = random.choice(words)
-    print(word)
+
     return word.lower()
 
 
