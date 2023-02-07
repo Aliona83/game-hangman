@@ -48,14 +48,42 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
  ### Welcome page
    * ![Welcome graffiti](/assets/images/welcome.png)
    
-   At the begining of the game user will see bright welcome grafitti and after this user starts the game. After it will ask the user to type their name. The username most be only letters,if the user will enter number or symbol , an error message will shows up.
+   At the begining of the game user will see bright welcome grafitti and after this user starts the game. After it will ask the user to type their name. 
+   * ![Error message](assets/images/usernsme.png)
+    
+    The username most enter  only letters,if the user will enter number or symbol , an error message will shows up.
  ### Start Game
    * ![Username and rules for game](/assets/images/username.png)
    * ![Game rules](assets/images/rules.png)
-   When the user will type his name will appare welcome message with his name. Below will appear the rules of the game with which the user can get acquainted before starting play game Hangman.
+   
+   When the user will type his name will appare welcome message with his name. Below will appear the rules of the game with which the user can get acquainted before starting play game Hangman. Each line of rules will appear gradually so the player can slowly read all rules and understand.
  ### Hangman Game
-   * 
-   * 
+
+    The player entering each time the correct letter will see a message that the letter is correct and the structure of the word with already guessed letters.
+
+   * ![Guessed right letter](assets/images/right.png)
+   
+   Also, for each incorrectly guessed letter, player will clearly see that letter was incorrect and hangman structure will appear, the player will also see how much life he still has left.
+
+   * ![Press only single letter no numbers](assets/images/letter.png)
+   
+   To keep the game fair the player can only enter one letter at a time, he is not allowed to enter any numbers and if he leaves an empty blank, he will not be able to move forward until he presses any letter.
+
+   * ![Wrong guessed letter](assets/images/graffiti.png)
+    
+    
+ ###  Hangman End Game
+
+  If the player guessed the full word, he will receive congratulations with the bright symbol "You Win"
+   * ![Win simbol](assets/images/win.png)
+    
+   The same thing will appear for the player if he did not guess the word and lost all his lives, he will get a symbol "You Lose", underneath he will also be notified which word he did not guess.
+   * ![Lose simbol](assets/images/lose.png)
+
+   After winnin or losing the player will be asked to play again,he will have two option n= no and y = yes. If the player wants to play again and he will press "y" ,the game will start over again. 
+   * ![Play again](assets/images/playagain.png)
+   
+   
 ## Technologies used
 ***
    * [Python]() for the main game play.
@@ -67,9 +95,9 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
    * [Programize](https://www.programiz.com/python-programming/time/sleep) - Found the necessary tutorials and examples for my project.
    * [Random words](https://randomwordgenerator.com/)
    
-## Design(add about colours I used, graffiti "welcome")
+## Design
 ***
-
+For this game, I wanted to use other colours so that I could emphasize the necessary information for the player, for this I used Colorama.
 ### Flowchart
 
 This flowchart contains the entire structure of the game. The flowchart was created in stages of how the game will run. This diagram help me to think how I will start coding. flow maps out the order of everything that can happend in the Hangman game completely. 
@@ -116,7 +144,9 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 ***
  * Slack community for information and also the few that helped me with the issues what I got. 
  * My mentor Mitko_mentor for continuous helpful feedback, motivating, help when struggling with parts of my code.
- * 
+ * [NPStation](https://www.youtube.com/watch?v=MtYw0RaZ4B0&t=455s) I watched this video a couple of times, I came up with what I needed for the game, how the game will look and how I will make it.
+ * [GreeksforGreeks](https://www.geeksforgeeks.org/indentation-in-python/) This helped me learn how to write code, how to create functions, and how to solve problems with indentations, also thanks to this site I found how I can fix the bug of not allowing the player to type two letters at the same time.
+ * [linkedIn]()https://www.linkedin.com/learning/first-look-python-3-9/new-pep-language-features?autoplay=true There I got first my knowledge about Python.
 ## Bugs
 ***
 Bugs and erros econountered during coding of project were solved through contiuned testing throught the development. Using print statements and through git terminal python3 run.py. Testing code to see what the code was doing and how it was responding as well as locating any errors that might be brought up in the problems part of git. Code was also run through the PEP8 during development for the same reason.
@@ -126,7 +156,7 @@ Bugs and erros econountered during coding of project were solved through contiun
   * 
   * 
   * 
-### Testing
+## Testing
 ### Fixed Issues
 ### Unfixed Issues
 
