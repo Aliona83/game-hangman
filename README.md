@@ -159,15 +159,16 @@ Bugs and erros econountered during coding of project were solved through contiun
 
   * I did as new to python have many syntax errors as wells as indent errors and white space errors.
   * Some funtion didn't work as they will build wrong.
-  * 
-  * 
-  * 
+  * All bugs(they are listed below in testing) have been fixed.
+  * PEP8  Python Validator all errors are fixed.
+  
 ## Testing
    Expected                                                                           
-  1. The player must enter his name before continuing to play.(Pass)
-  2. The player must use only letters to enter his name.(Pass)
+  1. The player must enter his name before continuing to play. (Pass)
+  2. The player must use only letters to enter his name. (Pass)
   3. The player can't enter 2 or more letters at the same time. (Faile) 
-  4. Checked can player go forward if he empty input.(Faile)                                                                
+  4. Checked if the player can go forward if he has empty input. (Faile) 
+   5. Player can't enter any numbers for guessing word.                                                  
               
               
               
@@ -176,10 +177,7 @@ Bugs and erros econountered during coding of project were solved through contiun
    * If the player enters numbers or other symbols in his name, he will be ask again to use only letters.
    * The code had been change, so that the player could enter only one letter at the time.
    * If player has an empty field and he press enter, he will be asked to get a single letter.
-###
-
-***
-* PEP8  Python Validator 
+   * Player is not allowed enter any numbers or symbols when he is guessing word.
 
 
 
