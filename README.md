@@ -25,7 +25,7 @@
 ## Project Overview
 ***
 
-In this project, I have made a hangman game using Python. Hangman is a popular word game. This game is a word game where the goals is to guess the word by selecting different letters until the word is complete.  Game is familiar to us since childhood, only we used paper and a pen for this game. This game will be interesting for adults and children, as the words are matched with different difficulties. The player will get a word and tries to guess it by suggesting letters. The player has the length of the word that has to guess, with some lifelines. You have 6 guesses to guess a letter or a word before you run out of life.
+In this project, I have made a hangman game using Python. Hangman is a popular word game. This game is a word game where the goals is to guess the word by selecting different letters until the word is complete.  Game is familiar to us since childhood, only we used paper and a pen for this game. This game will be interesting for adults and children, as the words are matched with different difficulties. All words are associated with the name of animals.The player will get a word and tries to guess it by suggesting letters. The player has the length of the word that has to guess, with some lifelines. You have 7 guesses to guess a letter or a word before you run out of life.
 
 ## Goals
 ***
@@ -35,6 +35,7 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
 * The level of play game should be average for both adults and children.
 * To be able to choose to play again or quit.
 * To be clearly informed how to play the game.
+* To be able to give a feedback.
 #### Visiter Goals
 * Want to enter user name.
 * I want to be able to see how many  tries I still left.
@@ -106,7 +107,7 @@ For this game, I wanted to use other colours so that I could emphasize the neces
 ### Flowchart
 
 This flowchart contains the entire structure of the game. The flowchart was created in stages of how the game will run. This diagram help me to think how I will start coding. flow maps out the order of everything that can happend in the Hangman game completely. 
-![Algorithm](assets/images/algorithm.png)
+![Algorithm](assets/images/algarithm.png)
 ## Deployment
 ***
 This project was deployed using Code Institute's mock terminal for Heroku. Below are the steps I followed to be able to deploy the terminal to the website:
@@ -152,6 +153,8 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
  * [NPStation](https://www.youtube.com/watch?v=MtYw0RaZ4B0&t=455s) I watched this video a couple of times, I came up with what I needed for the game, how the game will look and how I will make it.
  * [GreeksforGreeks](https://www.geeksforgeeks.org/indentation-in-python/) This helped me learn how to write code, how to create functions, and how to solve problems with indentations, also thanks to this site I found how I can fix the bug of not allowing the player to type two letters at the same time.
  * [linkedIn]()https://www.linkedin.com/learning/first-look-python-3-9/new-pep-language-features?autoplay=true There I got first my knowledge about Python.
+ * [Python](https://pythonexamples.org/ This platform was useful in understanding how to use various data structures available in Python.
+)
 ## Bugs
 ***
 Bugs and erros econountered during coding of project were solved through contiuned testing throught the development. Using print statements and through git terminal python3 run.py. Testing code to see what the code was doing and how it was responding as well as locating any errors that might be brought up in the problems part of git. Code was also run through the PEP8 during development for the same reason.
@@ -159,8 +162,9 @@ Bugs and erros econountered during coding of project were solved through contiun
 
   * I did as new to python have many syntax errors as wells as indent errors and white space errors.
   * Some funtion didn't work as they will build wrong.
-  * All bugs(they are listed below in testing) have been fixed.
+  * A lot of bugs were found during testing  the game (they are listed below in testing) they all have been fixed.
   * PEP8  Python Validator all errors are fixed.
+  
   
 ## Testing
    Expected                                                                           
@@ -168,16 +172,18 @@ Bugs and erros econountered during coding of project were solved through contiun
   2. The player must use only letters to enter his name. (Pass)
   3. The player can't enter 2 or more letters at the same time. (Faile) 
   4. Checked if the player can go forward if he has empty input. (Faile) 
-   5. Player can't enter any numbers for guessing word.                                                  
+  5. Player can't enter any numbers for guessing word.
+  6. It does not allow the player to enter the same letter twice. (Faile)                                          
               
               
               
-  Outcomes  
+  Fixed issues
    * The player must enter a name if he wants to procced to the game, he will be ask to use only letters.
    * If the player enters numbers or other symbols in his name, he will be ask again to use only letters.
    * The code had been change, so that the player could enter only one letter at the time.
    * If player has an empty field and he press enter, he will be asked to get a single letter.
    * Player is not allowed enter any numbers or symbols when he is guessing word.
+   * Player are not allowed to enter the same letter twice he will receive warning message that he used this letter already.
 
 
 
