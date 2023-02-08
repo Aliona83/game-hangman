@@ -171,7 +171,7 @@ Bugs and erros econountered during coding of project were solved through contiun
               
               
               
-    Outcomes  
+  Outcomes  
    * The player must enter a name if he wants to procced to the game, he will be ask to use only letters.
    * If the player enters numbers or other symbols in his name, he will be ask again to use only letters.
    * The code had been change, so that the player could enter only one letter at the time.

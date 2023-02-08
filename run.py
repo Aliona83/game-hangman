@@ -84,16 +84,14 @@ def hangman_play():
     hang_position = 0
     global return_back
 
-
     guess = ""
     while not game_won and lives > 0:
         guess = input("Enter only  single letter no numbers :").lower()
-        if len(guess) == 1  and guess.isalpha():
+        if len(guess) == 1 and guess.isalpha():
             print(guess)
-            
         else:
-           print("This is not a single letter")
-           continue
+            print("This is not a single letter")
+            continue
         i = 0
         if guess in word:
             while word.find(guess, i) != -1:      
@@ -101,7 +99,8 @@ def hangman_play():
                 display = display[:i] + guess + display[i + 1:]
                 i += 1
                 print(display)
-                print(f"{Fore.GREEN+Style.BRIGHT}Well done! this letter is in the word")
+                print(f"{Fore.GREEN+Style.BRIGHT}Well done!\n" 
+                      "this letter is in the word")
         if guess not in word:
             print(guess, f"{Fore.RED+Style.BRIGHT} is not the word!")
             print(f"{Fore.RED+Style.BRIGHT}LEFT:\n", lives)
@@ -119,7 +118,6 @@ def hangman_play():
             print()
             sleep(3)
 
-  
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -134,8 +132,9 @@ def play_loop():
         clear()
         main()
     if play_again == "n":
-         print("Thanks for playing! We expect you back again!")
-         quit()
+        print("Thanks for playing! We expect you back again!")
+        quit()
+
 
 def main():
     """
@@ -146,7 +145,7 @@ def main():
     # while return_back != 1 and play_again == 1:
     hangman_play()
     play_loop()
-    return 0 
+    return 0
 
 
 main()
