@@ -107,9 +107,11 @@ def hangman_play():
             guessed_already.add(guess)             
         if guess not in word:
             print(guess, f"{Fore.RED+Style.BRIGHT} is not the word!")
-            print(f"{Fore.RED+Style.BRIGHT}LEFT:\n", lives)
-            print(hangman[7-lives])
             lives -= 1
+            print(hangman[6-lives])
+            print(f"{Fore.RED+Style.BRIGHT}LEFT:\n", lives)
+           
+            
 
         if word == display:
             clear()
@@ -130,8 +132,8 @@ def clear():
 
 def play_loop():
     global play_again
-    play_again = input("Do you want to play again? y=yes,n=no\n")
-    while play_again not in ["y", "n", "Y", "N"]:
+    play_again = input("Do you want to play again? y=yes,n=no\n").lower()
+    while play_again not in ("y", "n"):
         play_again = input("Do you want to play again? y =yes, n = no\n")
     if play_again == "y":
         clear()
@@ -139,6 +141,8 @@ def play_loop():
     if play_again == "n":
         print("Thanks for playing! We expect you back again!")
         clear()
+    else:
+        print("Invalid entry.Please try again!\n")    
 
 
 def main():

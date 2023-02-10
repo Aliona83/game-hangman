@@ -152,7 +152,7 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
  * My mentor Mitko_mentor for continuous helpful feedback, motivating, help when struggling with parts of my code.
  * [NPStation](https://www.youtube.com/watch?v=MtYw0RaZ4B0&t=455s) I watched this video a couple of times, I came up with what I needed for the game, how the game will look and how I will make it.
  * [GreeksforGreeks](https://www.geeksforgeeks.org/indentation-in-python/) This helped me learn how to write code, how to create functions, and how to solve problems with indentations, also thanks to this site I found how I can fix the bug of not allowing the player to type two letters at the same time.
- * [linkedIn]()https://www.linkedin.com/learning/first-look-python-3-9/new-pep-language-features?autoplay=true There I got first my knowledge about Python.
+ * [linkedIn](https://www.linkedin.com/learning/python-quick-start/advance-your-career-with-python?autoplay=true) There I got first my knowledge about Python.
  * [Python](https://pythonexamples.org/ This platform was useful in understanding how to use various data structures available in Python.
 )
 ## Bugs
