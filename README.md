@@ -1,9 +1,7 @@
 # Game Hangman
 ***
 
-[Link for Repository](https://github.com/Aliona83/game-hangman)
-
-[Link for Life game](https://hangman-game83.herokuapp.com/)
+[Link for Life game](https://hangman-game83.herokuapp.com/){:target="_blank"}
 
 ![Image](assets/images/picture.png)
 
@@ -13,14 +11,14 @@
  * Project Overview
     * Goals
  * Features
- * Technologies Used
  * Design
     * Colour Scheme
     * Graphics
     * Flowchart
  * Deployment
- * Credits 
  * Testing
+ * Technologies Used
+ * Credits 
 
 ## Project Overview
 ***
@@ -46,7 +44,7 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
 ## Features
 ***
 ### Existing features
- ### Welcome page
+ ### Welcome screen
 
    At the begining of the game user will see bright welcome grafitti and after this user starts the game. 
    * ![Welcome graffiti](/assets/images/welcome.png)
@@ -89,18 +87,7 @@ In this project, I have made a hangman game using Python. Hangman is a popular w
    After winning or losing the player will be asked to play again,he will have two option n= no and y = yes. If the player wants to play again and he will press "y" ,the game will start over again. 
    * ![Play again](assets/images/playagain.png)
    
-   
-## Technologies used
-***
-   * [Python]() for the main game play.
-   * [GitHub]() as remote repository.
-   * [Heroku]() to deploy the website.
-   * [Diagram.net](https://app.diagrams.net/) to make a algorithm  for the game.
-   * [Patorjk.com]() for converting text to acii art.
-   * [Colorama](https://pypi.org/project/colorama/) For producing colored terminal text.
-   * [Programize](https://www.programiz.com/python-programming/time/sleep) - Found the necessary tutorials and examples for my project.
-   * [Random words](https://randomwordgenerator.com/)
-   
+
 ## Design
 ***
 For this game, I wanted to use other colours so that I could emphasize the necessary information for the player, for this I used Colorama.
@@ -146,15 +133,7 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 * Type git clone, and then paste the URL copied form GitHub.
 * Press enter and the clone of your repository will be created.
 
-## Credits
-***
- * Slack community for information and also the few that helped me with the issues what I got. 
- * My mentor Mitko_mentor for continuous helpful feedback, motivating, help when struggling with parts of my code.
- * [NPStation](https://www.youtube.com/watch?v=MtYw0RaZ4B0&t=455s) I watched this video a couple of times, I came up with what I needed for the game, how the game will look and how I will make it.
- * [GreeksforGreeks](https://www.geeksforgeeks.org/indentation-in-python/) This helped me learn how to write code, how to create functions, and how to solve problems with indentations, also thanks to this site I found how I can fix the bug of not allowing the player to type two letters at the same time.
- * [linkedIn](https://www.linkedin.com/learning/python-quick-start/advance-your-career-with-python?autoplay=true) There I got first my knowledge about Python.
- * [Python](https://pythonexamples.org/ This platform was useful in understanding how to use various data structures available in Python.
-)
+
 ## Bugs
 ***
 Bugs and erros econountered during coding of project were solved through contiuned testing throught the development. Using print statements and through git terminal python3 run.py. Testing code to see what the code was doing and how it was responding as well as locating any errors that might be brought up in the problems part of git. Code was also run through the PEP8 during development for the same reason.
@@ -184,7 +163,27 @@ Bugs and erros econountered during coding of project were solved through contiun
    * If player has an empty field and he press enter, he will be asked to get a single letter.
    * Player is not allowed enter any numbers or symbols when he is guessing word.
    * Player are not allowed to enter the same letter twice he will receive warning message that he used this letter already.
+   
+## Technologies used
+***
+   * [Python]() for the main game play.
+   * [GitHub]() as remote repository.
+   * [Heroku]() to deploy the website.
+   * [Diagram.net](https://app.diagrams.net/) to make a algorithm  for the game.
+   * [Patorjk.com]() for converting text to acii art.
+   * [Colorama](https://pypi.org/project/colorama/) For producing colored terminal text.
+   * [Programize](https://www.programiz.com/python-programming/time/sleep) - Found the necessary tutorials and examples for my project.
+   * [Random words](https://randomwordgenerator.com/)
+   
 
-
-
+## Credits
+***
+ * Slack community for information and also the few that helped me with the issues what I got. 
+ * My mentor Mitko_mentor for continuous helpful feedback, motivating, help when struggling with parts of my code.
+ * [NPStation](https://www.youtube.com/watch?v=MtYw0RaZ4B0&t=455s) I watched this video a couple of times, I came up with what I needed for the game, how the game will look and how I will make it.
+ * [GreeksforGreeks](https://www.geeksforgeeks.org/indentation-in-python/) This helped me learn how to write code, how to create functions, and how to solve problems with indentations, also thanks to this site I found how I can fix the bug of not allowing the player to type two letters at the same time.
+ * [linkedIn](https://www.linkedin.com/learning/python-quick-start/advance-your-career-with-python?autoplay=true) There I got first my knowledge about Python.
+ * [Python](https://pythonexamples.org/ This platform was useful in understanding how to use various data structures available in Python.
+)
+* [Display graphic for Hangman game](https://stackoverflow.com/questions/37514165/python-need-to-display-graphic-for-hangman-game)
 
