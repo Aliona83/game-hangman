@@ -21,7 +21,8 @@ def game_start():
     print(Fore.GREEN + welcome)
     sleep(1)
 
-    print(f"{Fore.LIGHTCYAN_EX+Style.BRIGHT}Welcome Dear Friend! It is time for game.\n")
+    print(f"{Fore.LIGHTCYAN_EX+Style.BRIGHT}Welcome\n"
+          "Dear Friend! It is time for game.\n")
     name = ''
     while True:
         name = input("Please enter your name(use letters only):")
@@ -94,7 +95,7 @@ def hangman_play():
             continue
         i = 0
         if guess in word:
-            while word.find(guess, i) != -1:      
+            while word.find(guess, i) != -1:
                 i = word.find(guess, i)
                 display = display[:i] + guess + display[i + 1:]
                 i += 1
@@ -102,17 +103,14 @@ def hangman_play():
                 print(f"{Fore.GREEN+Style.BRIGHT}This letter is in the word")
                 continue
         if guess in guessed_already:
-                    print(f"{Fore.RED+Style.BRIGHT}This letter has been used already!")
+            print(f"{Fore.RED+Style.BRIGHT}This letter has been used already!")
         else:
-            guessed_already.add(guess)             
+            guessed_already.add(guess)
         if guess not in word:
             print(guess, f"{Fore.RED+Style.BRIGHT} is not the word!")
             lives -= 1
             print(hangman[6-lives])
             print(f"{Fore.RED+Style.BRIGHT}LEFT:\n", lives)
-           
-            
-
         if word == display:
             clear()
             print("Congratulation, You win!")
@@ -142,7 +140,7 @@ def play_loop():
         print("Thanks for playing! We expect you back again!")
         clear()
     else:
-        print("Invalid entry.Please try again!\n")    
+        print("Invalid entry.Please try again!\n")
 
 
 def main():
